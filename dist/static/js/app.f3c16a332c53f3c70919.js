@@ -1,0 +1,2 @@
+webpackJsonp([2,0],[function(e,t,o){"use strict";function a(e){return e&&e.__esModule?e:{default:e}}var s=o(1),l=a(s);l.default.component("todo-item",{props:["todo"],template:"<li>{{ todo.text }}</li>"});var n=new l.default({el:"#app-7",data:{groceryList:[{text:"Vegetables"},{text:"Cheese"},{text:"Whatever else humans are supposed to eat"}]}});console.log(n)}]);
+//# sourceMappingURL=app.f3c16a332c53f3c70919.js.map
