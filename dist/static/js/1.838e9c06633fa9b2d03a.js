@@ -1,2 +1,0 @@
-webpackJsonp([1,2],{1:function(e,t,n){var r,i,o=n(6);i=r=r||{},"object"!=typeof r.default&&"function"!=typeof r.default||(i=r=r.default),"function"==typeof i&&(i=i.options),i.render=o.render,i.staticRenderFns=o.staticRenderFns,e.exports=r},6:function(e,t){e.exports={render:function(){var e=this,t=(e.$createElement,e._c);return t("div",[t("div",[e._v("this is index.vue")]),e._v(" "),t("router-link",{attrs:{to:"/login"}},[e._v("login")])])},staticRenderFns:[]}}});
-//# sourceMappingURL=1.838e9c06633fa9b2d03a.js.map
