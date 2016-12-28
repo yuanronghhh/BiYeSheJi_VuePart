@@ -1,0 +1,38 @@
+@import 'main.scss';
+$ORDER_BTN_RADIUS: 55px;
+.menu {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  font-size: 13px;
+  display: inline-flex;
+  background-color: $MAIN_COLOR;
+  a {
+    color: #ffffff;
+  }
+  .nav-wrapper {
+    padding-top: 4px;
+    text-align: center;
+    color: $ICON_COLOR;
+    width: 20%;
+    height: 50px;
+  }
+  .menu-icon {
+    font-size: 25px;
+    color: $ICON_COLOR;
+  }
+  .menu-center {
+    .menu-center-text { 
+      font-size: 20px;
+      margin: 15px 17px;
+    }
+    background-color: $MAIN_COLOR;
+    display: inline-flex;
+    border-radius: 50px;
+    position: relative;
+    border: solid 4px #ffffff;
+    width: $ORDER_BTN_RADIUS;
+    height: $ORDER_BTN_RADIUS;
+    bottom: 40px;
+  }
+}

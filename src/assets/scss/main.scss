@@ -3,16 +3,41 @@ $MAIN_COLOR: #9a26af;
 $INPUT_BORDER: 1px;
 $PLACEHOLDER_COLOR: #d3d3d3;
 $BODY_COLOR: #dee1e2;
-$BUTTON_PADDING: 10px;
-$ICON_HOST: "../fonts/icon.woff2";
-$ICON_SIZE: 35px; //图标大小
+$BUTTON_PADDING: 15px;  //按钮padding
+$ICON_SIZE: 30px;       //图标大小
+$ICON_COLOR: #ffffff;   //图标颜色
+.tip {
+  text-align: right;
+}
+.tip-left {
+  float: left;
+}
+.input-control {
+  margin-left: 10px;
+}
+.input-group {
+  margin-top: 50px;
+}
+.main-body {
+  width: 100%;
+  height: 90%;
+  background: url("../images/skin.png");
+  position: absolute;
+  margin: 50px 0px;
+}
 .btn {
   margin: 0px;
   padding: $BUTTON_PADDING;
   border: none;
 }
+.form-label {
+  color: #9a26af;
+}
+.btn.submit {
+  margin: 25px 0px;
+  width: 100%;
+}
 .block {
-  background-color: #fff;
   box-shadow: 0px 0px 4px -2px black;
   text-align: center;
 }
@@ -23,7 +48,9 @@ $ICON_SIZE: 35px; //图标大小
 .input-control {
   width: 100%;
 }
-
+a {
+  text-decoration: none;
+}
 input {
   outline-style: none;
   border-bottom: solid $INPUT_BORDER $MAIN_COLOR;
@@ -34,48 +61,21 @@ input {
     width: $INPUT_LENGTH;
   }
 }
-
 body {
-    background: $BODY_COLOR;
-    font-size: 15px;
-    color: black;
-    font-family: microsoft yahei,youyuan;
+  margin: 0px;
+  font-size: 15px;
+  color: black;
+  font-family: microsoft yahei,youyuan;
 }
-
 pre {
-    padding: 1em;
+  padding: 1em;
 }
 code>p {
-    margin: 0;
-    padding: 0;
-    font-family: microsoft yahei;
+  margin: 0;
+  padding: 0;
+  font-family: microsoft yahei;
 }
 ::-webkit-input-placeholder {
-    color: $PLACEHOLDER_COLOR;
-    font-size: 16px;
-}
-
-/* 字体图标 */
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Material Icons'), local('MaterialIcons-Regular'),
-  url($ICON_HOST) format('woff2');
-}
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: $ICON_SIZE;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
+  color: $PLACEHOLDER_COLOR;
+  font-size: 16px;
 }

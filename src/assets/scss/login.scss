@@ -1,37 +1,12 @@
-@import 'main.scss';
 img {
   width: 25%;
 }
-.block {
-  padding: 15px 10%;
-}
-
 .login-page {
-  a {
+  margin: 5% 3% 50px 3%;
+  padding: 15px 10%;
+  background-color: #ffffff;
+  .tip-left {
     color: red;
   }
-  .tip {
-    text-align: left;
-  }
-  .tip-signup {
-    color: black;
-    float: right;
-  }
 }
 
-.btn.login {
-  margin: 25px 0px;
-  width: 100%;
-}
-.login-label {
-  color: #9a26af;
-}
-.input-control {
-  margin-left: 10px;
-}
-/**
- * 尽量调整margin-top, 不调margin-bottom
- */
-.input-group {
-  margin-top: 50px;
-}

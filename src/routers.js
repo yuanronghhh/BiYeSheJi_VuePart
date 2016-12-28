@@ -22,6 +22,22 @@ const routers = [{
   name: 'login',
   component: Login
 }, {
+  path: '/signup',
+  name: 'signup',
+  component (resolve) {
+    require.ensure(['./views/signup.vue'], () => {
+      resolve(require('./views/signup.vue'));
+    });
+  }
+}, {
+  path: '/user',
+  name: 'user',
+  component (resolve) {
+    require.ensure(['./views/user.vue'], () => {
+      resolve(require('./views/user.vue'));
+    });
+  }
+}, {
   path: '*',
   component: NotFound
 }];
