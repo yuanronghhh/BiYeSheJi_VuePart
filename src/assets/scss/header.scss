@@ -1,21 +1,35 @@
 @import 'main.scss';
 .header {
-  z-index: 20;
-  top: 0px;
   display:  inline-flex;
   position: fixed;
+  height: 100px;
   width: 100%;
   background-color: $MAIN_COLOR;
-  height: 30px;
-  padding: 10px 0%;
+  line-height: 30px;
+  padding: 5px 0%;
   .header-icon {
-    margin: 0px 10px;
+    margin: 10px;
     color: $ICON_COLOR;
   }
   .title {
     width: 100%;
+    margin-top: 9px;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     color: #ffffff;
+  }
+}
+
+.search {
+  position: fixed;
+  display: inline-flex;
+  width: 100%;
+  .input-control {
+    margin-top: 10px;
+    color: #ffffff;
+    margin-left: 0px;
+    margin-bottom: 60px;
+    background-color: $MAIN_COLOR;
+    border-bottom: solid 1px #ffffff;
   }
 }

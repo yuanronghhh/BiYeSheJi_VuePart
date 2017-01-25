@@ -1,0 +1,8 @@
+@import 'main.scss';
+.bar {
+  padding: 0 2%;
+  color: $MAIN_COLOR;
+  .text-right {
+    float: right;
+  }
+}

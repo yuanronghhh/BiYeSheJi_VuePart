@@ -1,0 +1,20 @@
+$CIRCLE_SIZE: 12px;
+.slider {
+  width: 100%;
+  .slider-wrapper {
+    margin-top: -$CIRCLE_SIZE;
+  }
+  .slider-circle-wrapper {
+    .slider-circle {
+      position: relative;
+      float: right;
+      top: 150px;
+      right: 2%;
+      margin-right: 2%;
+      width: $CIRCLE_SIZE;
+      height: $CIRCLE_SIZE;
+      border-radius: $CIRCLE_SIZE / 2;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}

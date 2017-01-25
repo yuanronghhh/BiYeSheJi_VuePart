@@ -9,16 +9,13 @@
       <router-link to="/update-info">update-info</router-link>
       <router-link to="/signup">signup</router-link>
     </div>
-    <nv-menu></nv-menu>
   </div>
 </template>
 <script>
-import nvMenu from '../components/menu.vue';
 import nvHead from '../components/header.vue';
 export default {
   components: {
-    nvHead,
-    nvMenu
+    nvHead
   }
 };
 </script>

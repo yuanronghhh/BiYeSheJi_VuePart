@@ -2,12 +2,12 @@
   <div class="menu">
 
     <div class="nav-wrapper">
-      <router-link to="/search"><i class="large material-icons menu-icon">zoom_in</i></a>
-      <div class="nav-text">搜索</div>
+      <router-link to="/"><i class="large material-icons menu-icon">home</i></a>
+      <div class="nav-text">主页</div>
     </div>
     <div class="nav-wrapper">
-      <router-link to="/home"><i class="large material-icons menu-icon">home</i></a>
-      <div class="nav-text">主页</div>
+      <router-link to="/community"><i class="large material-icons menu-icon">group</i></a>
+      <div class="nav-text">社区</div>
     </div>
     <div class="nav-wrapper">
       <div class="menu-center"><span class="menu-center-text">订</span></div>

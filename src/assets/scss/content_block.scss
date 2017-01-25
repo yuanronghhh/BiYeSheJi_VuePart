@@ -1,0 +1,14 @@
+.content-wrapper {
+  display: inline-block;
+  width: 100%;
+  .content-block {
+    width: 46%;
+    padding: 0px 2%;
+    float: left;
+    .block-text {
+      position: absolute;
+      margin-top: -30px;
+      margin-left: 2%;
+    }
+  }
+}
