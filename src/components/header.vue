@@ -15,10 +15,12 @@
     <div class="search header" v-show="search_input">
       <a href="#cancel"><i class="material-icons header-icon" @click="cancelSearch()">cancel</i></a>
       <input class="input-control" type="text" v-model="search_keywords" @keyup.enter="postSearch()"/>
-      <a href="#postSearch"><div class="header-right material-icons header-icon" @click="postSearch()">search</div></a>
+      <a href="#postSearch">
+        <div class="header-right material-icons header-icon" @click="postSearch()">search</div>
+      </a>
     </div>
 
-    <nv-side v-if="show"
+    <nv-side v-show="show"
              :nick-name="nick_name"
              :user-image="user_image">
     </nv-side>
