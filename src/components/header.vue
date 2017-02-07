@@ -53,7 +53,9 @@ export default {
         type: 'POST',
         url: '/search',
         dataType: 'json',
-        data: this.search_keywords,
+        data: {
+          "search_words": this.search_keywords
+        },
         success: function (data, status, xhr) {
           console.log(data);
         },
