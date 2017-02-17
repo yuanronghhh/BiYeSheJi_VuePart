@@ -1,8 +1,8 @@
 @import 'main.scss';
+$TITLE_COLOR: #909090;
 .header {
   display:  inline-flex;
   position: fixed;
-  height: 100px;
   width: 100%;
   background-color: $MAIN_COLOR;
   line-height: 30px;
@@ -11,12 +11,14 @@
     margin: 10px;
     color: $ICON_COLOR;
   }
+  .header-right {
+  }
   .title {
     width: 100%;
     margin-top: 9px;
     text-align: center;
     font-size: 18px;
-    color: #ffffff;
+    color: $TITLE_COLOR;
   }
 }
 
@@ -25,11 +27,9 @@
   display: inline-flex;
   width: 100%;
   .input-control {
-    margin-top: 10px;
-    color: #ffffff;
-    margin-left: 0px;
-    margin-bottom: 60px;
+    color: $TITLE_COLOR;
+    margin: 10px 0px;
     background-color: $MAIN_COLOR;
-    border-bottom: solid 1px #ffffff;
+    border-bottom: solid 1px $TITLE_COLOR;
   }
 }

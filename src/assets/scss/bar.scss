@@ -1,8 +1,10 @@
 @import 'main.scss';
-.bar {
-  padding: 0 2%;
-  color: $MAIN_COLOR;
-  .text-right {
+.tnav {
+  padding: 10px 2%;
+  margin-bottom: 5px;
+  color: #909090;
+  .rtext {
+    font-family: "方正姚体";
     float: right;
   }
 }

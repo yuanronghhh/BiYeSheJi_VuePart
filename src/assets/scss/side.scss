@@ -1,15 +1,16 @@
+@import 'main.scss';
 .side {
   z-index: 20;
   height: 100%;
   position: fixed;
-  background-color: #ffffff;
+  background-color: $MAIN_COLOR;
   color: #ffffff;
-  width: 80%;
+  width: 75%;
   .side-user {
     height: 120px;
-    background: #1976D2;
+    background: $ICON_COLOR;
     font-size: 14px;
-    padding: 50px 0px 0px 10px;
+    padding: 70px 0px 0px 5%;
     .user-image {
       border-radius: 25px;
       height: 50px;
@@ -26,10 +27,29 @@
       float: left;
       margin: 2px 20px 0px 10px;
       font-size: 22px;
-      color: #64B5F6;
+    }
+    .icon-collect {
+      color: #f2adca;
+    }
+    .icon-msg {
+      color: #c2b5e0;
+    }
+    .icon-cmt {
+      color: #9adaf3;
+    }
+    .icon-user {
+      opacity: 0.5;
+      color: $ICON_COLOR;
+    }
+    .icon-us {
+      color: #ddf1b8;
+    }
+    .icon-help {
+      color: #d7d8dc;
     }
     .line {
       line-height: 30px;
+      color: #909090;
       margin: 10px 3%;
     }
     .user-info {

@@ -1,12 +1,22 @@
 <template>
   <div class="content-wrapper">
-    <div class="content-block">
-      <a href=""><img class="block-img" src="../assets/images/slider_01.png" /></a>
-      <a href=""><div class="block-text" v-text="blockText"></div></a>
-    </div>
-    <div class="content-block">
-      <a href=""><img class="block-img" src="../assets/images/slider_01.png" /></a>
-      <a href=""><div class="block-text" v-text="blockText"></div></a>
+    <div class="access">
+      <div class="ac-wrapper">
+        <div class="ac-icon ac-one"><i class="material-icons">group</i></div>
+        <div class="ac-text">商家活动</div>
+      </div>
+      <div class="ac-wrapper">
+        <div class="ac-icon ac-two"><i class="material-icons">format_list_bulleted</i></div>
+        <div class="ac-text">热门菜单</div>
+      </div>
+      <div class="ac-wrapper">
+        <div class="ac-icon ac-three"><i class="material-icons">local_florist</i></div>
+        <div class="ac-text">好评如潮</div>
+      </div>
+      <div class="ac-wrapper">
+        <div class="ac-icon ac-four"><i class="material-icons">local_dining</i></div>
+        <div class="ac-text">精品推荐</div>
+      </div>
     </div>
   </div>
 </template>

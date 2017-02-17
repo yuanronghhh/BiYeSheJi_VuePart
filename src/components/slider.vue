@@ -6,7 +6,10 @@
       <div class="slider-circle"></div>
     </div>
     <div class="slider-wrapper">
-      <a href="#img"><img class="slider-img" src="../assets/images/slider_01.png" /></a>
+      <a href="#img" class="slider-link"><img class="slider-img"
+        src="../assets/images/huodong1.jpg" /></a>
+      <a href="#img" class="slider-link"><img class="slider-img" src="" /></a>
+      <a href="#img" class="slider-link"><img class="slider-img" src="" /></a>
     </div>
   </div>
 </template>

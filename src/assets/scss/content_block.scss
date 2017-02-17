@@ -1,14 +1,42 @@
+$ACCESS_ICON: 55px;
+$WAPPER_PADDING: 0%;
 .content-wrapper {
   display: inline-block;
   width: 100%;
-  .content-block {
-    width: 46%;
-    padding: 0px 2%;
-    float: left;
-    .block-text {
-      position: absolute;
-      margin-top: -30px;
-      margin-left: 2%;
+  .access {
+    .ac-wrapper {
+      float: left;
+      width: (100% - $WAPPER_PADDING * 8) / 4;
+      margin-top: 3%;
+      .ac-one {
+        background: #fd6f82;
+      }
+      .ac-two {
+        background: #8988c2;
+      }
+      .ac-three {
+        background: #efcfb6;
+      }
+      .ac-four {
+        background: #feaa7c;
+      }
+    }
+    text-align: center;
+    .ac-icon {
+      .material-icons {
+        margin-top: 10px;
+        font-size: 30px;
+      }
+      margin: 0 auto;
+      color: white;
+      height: $ACCESS_ICON;
+      width: $ACCESS_ICON;
+      border-radius: $ACCESS_ICON;
+      padding: 5px;
+    }
+    .ac-text {
+      color: #909090;
+      margin: 5px 0;
     }
   }
 }

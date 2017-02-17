@@ -1,20 +1,30 @@
-$CIRCLE_SIZE: 12px;
+$CIRCLE_SIZE: 10px;
 .slider {
-  width: 100%;
+  position: relative;
+  font-size: 0px;
   .slider-wrapper {
-    margin-top: -$CIRCLE_SIZE;
+    display: inline-block;
+    width: 300%;
+    .slider-link {
+      .slider-img {
+        height: 10%;
+        float: left;
+        display:  inline-block;
+        width: 33.3333%;
+      }
+    }
   }
   .slider-circle-wrapper {
+    position: absolute;
+    right: 10%;
+    bottom: 5%;
     .slider-circle {
-      position: relative;
-      float: right;
-      top: 150px;
-      right: 2%;
-      margin-right: 2%;
+      display:  inline-block;
+      margin-left: 10px;
       width: $CIRCLE_SIZE;
       height: $CIRCLE_SIZE;
       border-radius: $CIRCLE_SIZE / 2;
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(0, 0, 0, 0.5);
     }
   }
 }
