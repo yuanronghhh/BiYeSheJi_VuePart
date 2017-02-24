@@ -3,14 +3,9 @@ $CIRCLE_SIZE: 10px;
   position: relative;
   font-size: 0px;
   .slider-wrapper {
-    display: inline-block;
-    width: 300%;
     .slider-link {
       .slider-img {
-        height: 10%;
-        float: left;
-        display:  inline-block;
-        width: 33.3333%;
+        position: absolute;
       }
     }
   }

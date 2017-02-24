@@ -35,8 +35,6 @@ export default {
     nvMenu,
     nvSlider,
     nvBlock
-  },
-  method: {
   }
 };
 </script>

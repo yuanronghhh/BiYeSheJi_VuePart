@@ -63,7 +63,7 @@ export default {
           return;
         }
         $('#' + form.error.key).focus();
-        return ;
+        return;
       }
       $.ajax({
         type: 'POST',

@@ -40,7 +40,7 @@ import nvHead from '../components/header.vue';
 import Form from '../libs/forms.js';
 import $ from 'webpack-zepto';
 export default {
-  data () {
+  data: function () {
     return {
       signup_form: {}
     };
