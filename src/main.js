@@ -9,7 +9,6 @@ Vue.use(Alert);
 Vue.use(VueRouter);
 
 $.ajaxSettings.crossDomain = true;
-
 const router = new VueRouter({
   mode: 'history',
   routes: routes

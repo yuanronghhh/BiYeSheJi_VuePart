@@ -2,11 +2,12 @@ $CIRCLE_SIZE: 10px;
 .slider {
   position: relative;
   font-size: 0px;
+  display: inline-block;
   .slider-wrapper {
+    width: 400%;
+    display: inline-flex;
     .slider-link {
-      .slider-img {
-        position: absolute;
-      }
+      width: 100%;
     }
   }
   .slider-circle-wrapper {

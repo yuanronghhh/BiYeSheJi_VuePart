@@ -1,15 +1,12 @@
 $INPUT_LENGTH: 100%;
 $MAIN_COLOR: #ffffff;
 $INPUT_BORDER: 1px;
-$PLACEHOLDER_COLOR: #d3d3d3;
-$BODY_COLOR: #dee1e2;
-$BUTTON_PADDING: 15px;  //按钮padding
-$ICON_SIZE: 25px;       //图标大小
-$ICON_COLOR: #03a5b4;   //图标颜色
+$PLACEHOLDER_COLOR: #d3d3d3; //placeholder颜色
+$BODY_COLOR: #dee1e2;        //主颜色
+$BUTTON_PADDING: 15px;       //按钮padding
+$ICON_SIZE: 25px;            //图标大小
+$ICON_COLOR: #03a5b4;        //图标颜色
 @import 'effect.scss';
-.under-shadow {
-  text-shadow: 1px 1px 1px #696969;
-}
 .submit {
   font-weight: bold;
 }
@@ -17,7 +14,7 @@ $ICON_COLOR: #03a5b4;   //图标颜色
   z-index: 10;
   bottom: 10%;
   width: 80%;
-  color: #BODY_COLOR;
+  color: $BODY_COLOR;
   padding: 5px 0px;
   margin: 0% 10%;
   background-color: #d2d2d2;
@@ -40,8 +37,8 @@ $ICON_COLOR: #03a5b4;   //图标颜色
 .main-body {
   height: 100%;
   width: 100%;
-  position: absolute;
-  margin: 52px 0px;
+  position: fixed;
+  margin: 41px 0px;
 }
 .main-bg {
   position: fixed;
@@ -64,7 +61,7 @@ $ICON_COLOR: #03a5b4;   //图标颜色
   width: 100%;
 }
 .block {
-  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
 }
 .input-group {
   width: 100%;

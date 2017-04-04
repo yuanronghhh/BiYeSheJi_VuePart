@@ -1,22 +1,23 @@
 @import 'main.scss';
 $TITLE_COLOR: #909090;
+
 .header {
   display:  inline-flex;
   position: fixed;
+  z-index: 19;
   width: 100%;
   background-color: $MAIN_COLOR;
   line-height: 30px;
-  padding: 5px 0%;
+  padding: 0px 0%;
   .header-icon {
-    margin: 10px;
+    margin: 5px 10px;
     color: $ICON_COLOR;
-  }
-  .header-right {
+    cursor: pointer;
   }
   .title {
     width: 100%;
-    margin-top: 9px;
     text-align: center;
+    margin: 5px 0px;
     font-size: 18px;
     color: $TITLE_COLOR;
   }

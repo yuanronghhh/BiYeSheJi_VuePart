@@ -1,9 +1,9 @@
 <template>
-  <div class="content-wrapper">
+  <div class="content-wrapper block">
     <div class="access">
       <a href="#shangjiahuodong" class="ac-wrapper">
         <div class="ac-icon ac-one"><i class="material-icons">group</i></div>
-        <div class="ac-text">商家活动</div>
+        <div class="ac-text">餐厅活动</div>
       </a>
       <a href="#remencaidan" class="ac-wrapper">
         <div class="ac-icon ac-two"><i class="material-icons">format_list_bulleted</i></div>

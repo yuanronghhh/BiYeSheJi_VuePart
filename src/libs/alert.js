@@ -1,9 +1,6 @@
 import Vue from 'vue';
 import $ from 'webpack-zepto';
 
-/**
- * 全局注册提示
- */
 export default {
   install () {
     let timer = null;

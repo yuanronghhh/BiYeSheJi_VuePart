@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="side block">
+    <div class="side">
 
       <div class="side-user">
         <a href=""><img class="user-image" src="../assets/images/slider_01.png" alt="" /></a>
@@ -18,7 +18,7 @@
       </div>
 
     </div>
-    <div class="side-bg" v-on:click="hideSide()"></div>
+    <div v-on:click="hideSide()"></div>
   </div>
 </template>
 <script>
@@ -27,7 +27,8 @@ require('../assets/scss/side.scss');
 export default {
   methods: {
     hideSide () {
-      this.$parent.show = !this.$parent.show;
+      this.$el.firstChild.classList.remove("show-side");
+      this.$el.lastChild.classList.remove("side-bg");
     }
   }
 };

@@ -128,7 +128,7 @@ module.exports = {
   //  "no-unsafe-negation": "error",
   //  "no-unused-expressions": "off",
   //  "no-unused-labels": "error",
-  //  "no-unused-vars": "error",
+  "no-unused-vars": "error",
   //  "no-use-before-define": "off",
   //  "no-useless-call": "off",
   //  "no-useless-computed-key": "off",

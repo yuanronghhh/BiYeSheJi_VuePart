@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="header" v-show="!search_input">
+    <div class="block header" v-show="!search_input">
       <div class="material-icons 
                   header-left
                   header-icon" 
@@ -12,7 +12,7 @@
       </a>
     </div>
 
-    <div class="search header" v-show="search_input">
+    <div class="search header block" v-show="search_input">
       <a href="#cancel"><i class="material-icons header-icon" @click="cancelSearch()">cancel</i></a>
       <input class="input-control" type="text" v-model="search_keywords" @keyup.enter="postSearch()"/>
       <a href="#postSearch">
@@ -20,8 +20,7 @@
       </a>
     </div>
 
-    <nv-side v-show="show"
-             :nick-name="nick_name"
+    <nv-side :nick-name="nick_name"
              :user-image="user_image">
     </nv-side>
   </div>
@@ -40,7 +39,8 @@ export default {
   },
   methods: {
     showMenu () {
-      this.show = !this.show;
+      this.$children[0].$el.firstChild.classList.add("show-side");
+      this.$children[0].$el.lastChild.classList.add("side-bg");
     },
     showSearch () {
       this.search_input = true;
@@ -70,7 +70,6 @@ export default {
     return {
       search_input: false,
       search_keywords: '',
-      show: false,
       nick_name: '',
       user_image: ''
     };

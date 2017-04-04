@@ -5,18 +5,18 @@
     <div class="main-body">
       <nv-slider></nv-slider>
 
-      <div class="block tnav">
+      <div class="tnav">
         <span class="ltext">美食直达</span>
         <span class="rtext">"等你来吃"</span>
       </div>
       <nv-block></nv-block>
-      <div class="block tnav">
+      <div class="tnav">
         <span class="ltext">猜你喜欢</span>
         <span class="rtext">"懂你"</span>
       </div>
-      <div class="block tnav">
+      <div class="tnav">
         <span class="ltext">近期操作</span>
-        <span class="rtext">"点滴分享"</span>
+        <span class="rtext">"记录"</span>
       </div>
 
     </div>

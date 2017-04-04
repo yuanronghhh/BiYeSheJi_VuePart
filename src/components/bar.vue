@@ -1,5 +1,5 @@
 <template>
-  <div class="bar block-shadow" >
+  <div class="bar">
     <span v-text="barLeftText"></span>
     <div class="text-right" v-text="barRightText"></div>
   </div>
