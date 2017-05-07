@@ -1,13 +1,14 @@
-$ACCESS_ICON: 45px;
+$ACCESS_ICON: 30px;
 $WAPPER_PADDING: 0%;
 .content-wrapper {
-  display: inline-block;
+  margin: 0;
   width: 100%;
   .access {
     .ac-wrapper {
-      float: left;
+      padding-top: 10px;
+      background: white;
       width: (100% - $WAPPER_PADDING * 8) / 4;
-      margin-top: 3%;
+      float: left;
       .ac-one {
         background: #fd6f82;
       }
@@ -20,12 +21,18 @@ $WAPPER_PADDING: 0%;
       .ac-four {
         background: #feaa7c;
       }
+      .ac-five {
+        background: #CE93D8;
+      }
+      .ac-six {
+        background: #EDE7F6;
+      }
     }
     text-align: center;
     .ac-icon {
       .material-icons {
-        margin-top: 8px;
-        font-size: 28px;
+        margin-top: 3px;
+        font-size: 20px;
       }
       margin: 0 auto;
       color: white;

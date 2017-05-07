@@ -4,17 +4,25 @@
       <div class="material-icons 
                   header-left
                   header-icon" 
-           @click="showMenu()">menu
+           v-text="left_icon"
+           @click="left_click($event)">menu
       </div>
+
       <div class="title" v-text="pageType"></div>
+
       <a href="#search">
-        <div class="header-right material-icons header-icon" @click="showSearch()">search</div>
+        <div class="header-right 
+                    material-icons
+                    header-icon"
+                    v-text="right_icon"
+                    @click="showSearch()">search</div>
       </a>
+
     </div>
 
     <div class="search header block" v-show="search_input">
       <a href="#cancel"><i class="material-icons header-icon" @click="cancelSearch()">cancel</i></a>
-      <input class="input-control" type="text" v-model="search_keywords" @keyup.enter="postSearch()"/>
+      <input class="input-control" type="text" @blur="cancelSearch()" v-model="search_keywords" @keyup.enter="postSearch()"/>
       <a href="#postSearch">
         <div class="header-right material-icons header-icon" @click="postSearch()">search</div>
       </a>
@@ -35,18 +43,31 @@ export default {
   replace: true,
   props: {
     pageType: String,
-    rightIcon: String
+    left_icon: String,
+    right_icon: String
   },
   methods: {
+    left_click: function(ele){
+      if(ele.target.innerText === "keyboard_arrow_left") {
+        window.history.back();
+      } else {
+        this.showMenu();
+      }
+    },
     showMenu () {
-      this.$children[0].$el.firstChild.classList.add("show-side");
-      this.$children[0].$el.lastChild.classList.add("side-bg");
+      this.$children[0].showSide();
+      this.cleanInput();
     },
     showSearch () {
       this.search_input = true;
+      this.cleanInput();
     },
     cancelSearch () {
       this.search_input = false;
+      this.cleanInput();
+    },
+    cleanInput () {
+      this.$data.search_keywords = "";
     },
     postSearch () {
       $.ajax({
@@ -64,6 +85,7 @@ export default {
         }
       });
       this.cancelSearch();
+      this.cleanInput();
     }
   },
   data () {

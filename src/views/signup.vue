@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main-bg"></div>
-    <nv-head page-type="注册"></nv-head>
+    <nv-head page-type="注册" left_icon="keyboard_arrow_left" right_icon="n"></nv-head>
 
     <div class="main-body">
       <div class="block signup-page">

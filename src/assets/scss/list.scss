@@ -1,0 +1,40 @@
+@import 'main.scss';
+$PIC_WIDTH: 80px;
+.list {
+  background: $MAIN_COLOR;
+  .filter-wrapper {
+    width: 96%;
+    display: flex;
+    padding: 10px 2%;
+    .filter {
+      text-align: center;
+      width: 20%;
+      height: 100%;
+      font-size: small;
+      color: grey;
+    }
+  }
+  .inner {
+    background: white;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.05);
+    padding: 10px 5px;
+    display: flex;
+    .left {
+      width: $PIC_WIDTH;
+      height: $PIC_WIDTH;
+      margin: 5px 1%;
+      background: $ICON_COLOR;
+    }
+    .right {
+      width: 70%;
+      .profile {
+         font-size: 14px;
+         color: #797978;
+      }
+      .price {
+        font-size: 20px;
+        color: $ICON_COLOR;
+      }
+    }
+  }
+}

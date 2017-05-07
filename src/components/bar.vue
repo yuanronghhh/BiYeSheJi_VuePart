@@ -1,16 +1,28 @@
 <template>
-  <div class="bar">
-    <span v-text="barLeftText"></span>
-    <div class="text-right" v-text="barRightText"></div>
+  <div class="tnav">
+    <span class="ltext" v-text="leftText"></span>
+    <span class="rtext" v-text="rightText"></span>
   </div>
 </template>
 <script>
-require('../assets/scss/bar.scss');
 export default {
-  replace: true,
   props: {
-    barLeftText: String,
-    barRightText: String
+    leftText: String,
+    rightText: String
   }
 }
 </script>
+<style lang="scss">
+.tnav {
+  padding: 10px 2%;
+  margin: 0px 0px;
+  width: 96%;
+  color: black;
+  display: inline-block;
+  background: #F5F5F5;
+  .rtext {
+    font-family: "方正姚体";
+    float: right;
+  }
+}
+</style>

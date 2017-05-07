@@ -4,21 +4,21 @@ Vue.use(Vuex);
 
 const userStore = new Vuex.Store({
   state: {
-    userInfo: {}
+    user_info: {}
   },
   getters: {
     getUserInfo(state) {
-      return state.userInfo;
+      return state.user_info;
     }
   },
   mutations: {
-    setUserInfo(state, userInfo) {
-      state.userInfo = userInfo;
+    setUserInfo(state, user_info) {
+      state.user_info = user_info;
     }
   },
   actions: {
-    setUserInfo({ commit }, user) {
-      commit('setUserInfo', user);
+    setUserInfo({ commit }, user_info) {
+      commit('setUserInfo', user_info);
     }
   }
 });

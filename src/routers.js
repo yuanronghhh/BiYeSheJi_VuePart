@@ -30,11 +30,27 @@ const routers = [{
     });
   }
 }, {
-  path: '/user',
+  path: '/hot-menu',
+  name: 'menu',
+  component (resolve) {
+    require.ensure(['./views/list.vue'], () => {
+      resolve(require('./views/list.vue'));
+    });
+  }
+}, {
+  path: '/user/:login_name',
   name: 'user',
   component (resolve) {
     require.ensure(['./views/user.vue'], () => {
       resolve(require('./views/user.vue'));
+    });
+  }
+}, {
+  path: '/item/:id/detail',
+  name: 'detail',
+  component (resolve) {
+    require.ensure(['./views/detail.vue'], () => {
+      resolve(require('./views/detail.vue'));
     });
   }
 }, {

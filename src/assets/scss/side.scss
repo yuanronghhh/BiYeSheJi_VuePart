@@ -7,15 +7,20 @@
   height: 100%;
   transition: all 0.4s cubic-bezier(0.4, 0, 0, 1);
   position: fixed;
+  color: white;
   background-color: $MAIN_COLOR;
-  color: #ffffff;
   left: -75%;
   width: 75%;
   .side-user {
     height: 120px;
     background: $ICON_COLOR;
     font-size: 14px;
-    padding: 70px 0px 0px 5%;
+    padding: 60px 0px 0px 5%;
+    .btn {
+      background: $ICON_COLOR;
+      padding: 5px;
+      margin: 20px 0;
+    }
     .user-image {
       border-radius: 25px;
       height: 50px;
@@ -26,43 +31,68 @@
       margin: 5px 0%;
     }
   }
-  .panel {
-    margin-top: 10px;
-    .material-icons {
-      float: left;
-      margin: 2px 20px 0px 10px;
-      font-size: 22px;
+  .search {
+    padding: 10px 2%;
+    background: $ICON_COLOR;
+    position: relative;
+    color: white;
+    display: inline-flex;
+    width: 96%;
+    input {
+      text-align: left;
+      background: $ICON_COLOR;
+      width: 100%;
+      border: none;
+      color: white;
     }
-    .icon-collect {
-      color: #f2adca;
-    }
-    .icon-msg {
-      color: #c2b5e0;
-    }
-    .icon-cmt {
-      color: #9adaf3;
-    }
-    .icon-user {
-      opacity: 0.5;
-      color: $ICON_COLOR;
-    }
-    .icon-us {
-      color: #ddf1b8;
-    }
-    .icon-help {
-      color: #d7d8dc;
-    }
-    .line {
-      line-height: 30px;
-      color: #909090;
-      margin: 10px 3%;
-    }
-    .user-info {
-      border-bottom: solid 1px rgba(0, 0, 0, 0.13);
-      padding-bottom: 10px;
+    ::-webkit-input-placeholder {
+      color: white;
+      font-family: "方正姚体";
     }
   }
 }
+
+.panel {
+  margin-top: 10px;
+  background: white;
+  .material-icons {
+    float: left;
+    margin: 2px 20px 0px 10px;
+    font-size: 22px;
+  }
+  .icon-collect {
+    color: #f2adca;
+  }
+  .icon-msg {
+    color: #c2b5e0;
+  }
+  .icon-cmt {
+    color: #9adaf3;
+  }
+  .icon-user {
+    opacity: 0.5;
+    color: $ICON_COLOR;
+  }
+  .icon-us {
+    color: #ddf1b8;
+  }
+  .icon-help {
+    color: #d7d8dc;
+  }
+  .comments {
+    margin: 0;
+  }
+  .line {
+    line-height: 30px;
+    color: #909090;
+    margin: 10px 3%;
+  }
+  .user-info {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.13);
+    padding-bottom: 10px;
+  }
+}
+
 .side-bg {
   position: fixed;
   z-index: 19;

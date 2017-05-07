@@ -1,21 +1,24 @@
 $CIRCLE_SIZE: 10px;
 .slider {
+  overflow: auto;
   position: relative;
-  font-size: 0px;
-  display: inline-block;
   .slider-wrapper {
+    display: flex;
     width: 400%;
-    display: inline-flex;
-    .slider-link {
-      width: 100%;
+    img {
+      float: left;
     }
   }
   .slider-circle-wrapper {
     position: absolute;
-    right: 10%;
-    bottom: 5%;
+    bottom: 0;
+    right: 0;
+    padding: 12px 5%;
+    background: rgba(0, 0, 0, 0.2);
+    width: 90%;
     .slider-circle {
-      display:  inline-block;
+      position: relative;
+      float: right;
       margin-left: 10px;
       width: $CIRCLE_SIZE;
       height: $CIRCLE_SIZE;
