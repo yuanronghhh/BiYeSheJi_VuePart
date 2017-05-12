@@ -6,7 +6,7 @@
     <div class="main-body">
       <div class="block login-page">
         <div class="portrait">
-          <img src="../assets/images/Login_03.jpg"></img>
+          <img :src="portrait"></img>
         </div>
 
         <div class="input-group">
@@ -15,6 +15,7 @@
                  id="account" 
                  v-model="login_form.account" 
                  placeholder="昵称或邮箱" 
+                 @change="checkAccount()"
                  type="text" />
         </div>
 
@@ -44,16 +45,33 @@ require('../assets/scss/main.scss');
 import nvHead from '../components/header.vue';
 import nvMenu from '../components/menu.vue';
 import $ from 'webpack-zepto';
+import config from '../config.js';
 import Form from '../libs/forms.js';
 
 export default {
   data () {
     return {
-      login_form: {}
+      login_form: {},
+      portrait: ''
     }
   },
   methods: {
-    login () {
+    checkAccount: function() {
+      var default_url = require("../assets/images/Login_03.jpg");
+      this.portrait = default_url;
+      $.ajax({
+        type: "POST",
+        url: config.domain + '/checkaccount',
+        data: this.login_form,
+        success: (data) => {
+          this.portrait = data.picture_url || default_url ;
+        },
+        error: (xhr, dataType, error) => {
+          this.portrait = default_url;
+        }
+      });
+    },
+    login: function() {
       let form = new Form();
       form.validateData(['account', 'password'], this.login_form);
       if(!form.is_valid){
@@ -67,21 +85,28 @@ export default {
       }
       $.ajax({
         type: 'POST',
-        url: '/login',
-        dataType: 'json',
-        data: form.cleaned_data,
-        success: function (data, status, xhr) {
-          console.log(data);
+        url: config.domain + '/login',
+        data: this.login_form,
+        success: (data, status, xhr) => {
+          let user = data.user;
+          this.$alert(data.message);
+          window.window.sessionStorage.user = JSON.stringify(user);
+          this.$store.dispatch('setUserInfo', user);
+          this.$router.push({
+            path: "/"
+          });
+          this.$alert();
         },
-        error: function (xhr, errorType, error) {
-          console.log(error);
-        }
+        error: this.$errorHandler
       });
     }
   },
   components: {
     nvHead,
     nvMenu
+  },
+  mounted () {
+    this.checkAccount();
   }
 };
 </script>

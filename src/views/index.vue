@@ -14,9 +14,9 @@
             <div class="ac-icon ac-one"><i class="material-icons">group</i></div>
             <div class="ac-text">餐厅活动</div>
           </router-link>
-          <router-link to="/hot-menu" class="ac-wrapper">
+          <router-link to="/items" class="ac-wrapper">
             <div class="ac-icon ac-two"><i class="material-icons" >format_list_bulleted</i></div>
-            <div class="ac-text">热门列表</div>
+            <div class="ac-text">所有菜单</div>
           </router-link>
           <router-link to="/most-stars" class="ac-wrapper">
             <div class="ac-icon ac-three"><i class="material-icons">local_florist</i></div>
@@ -45,7 +45,7 @@
             <div class="ac-icon ac-one"><i class="material-icons">history</i></div>
             <div class="ac-text">历史列表</div>
           </router-link>
-          <router-link :to="{ name: 'user', params: { login_name: 'login_name' }}" class="ac-wrapper">
+          <router-link to="/user" class="ac-wrapper">
             <div class="ac-icon ac-five"><i class="material-icons">person</i></div>
             <div class="ac-text">个人中心</div>
           </router-link>
@@ -63,6 +63,8 @@
   </div>
 </template>
 <script>
+import $ from "webpack-zepto";
+import config from '../config.js';
 import nvHead from '../components/header.vue';
 import nvMenu from '../components/menu.vue';
 import nvSlider from '../components/slider.vue';
@@ -70,17 +72,6 @@ import nvContent from './content.vue';
 import nvCard from '../components/card.vue';
 import nvList from '../components/list.vue';
 import nvBar from '../components/bar.vue';
-var guessLike = [{
-  id: 1,
-  title: "[特价]麻辣鸡翅",
-  profile: "介绍。。。，需要两行才好看些。。。。。。。。",
-  price: "12"
-}, {
-  id: 2,
-  title: "[特价]麻辣鸡翅",
-  profile: "介绍。。。，需要两行才好看些。。。。。。。。",
-  price: "12"
-}];
 
 export default {
   components: {
@@ -92,10 +83,34 @@ export default {
     nvBar,
     nvCard
   },
+  props: {
+  },
   data () {
     return {
-      guessLike: guessLike
+      guessLike: []
+    };
+  },
+  methods: {
+    getGuessLike: function() {
+      $.ajax({
+        type: "GET",
+        url: config.domain + "/item/getguesslike",
+        success: (data, status, xhr) => {
+          this.guessLike = data;
+        },
+        error: (xhr, errorType, error) => {
+          this.guessLike = [{
+            id: 1,
+            profile: 'dsla',
+            title: "djslkadj",
+            price: 12
+          }];
+        }
+      });
     }
+  },
+  mounted () {
+    this.getGuessLike();
   }
 };
 </script>

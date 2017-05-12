@@ -47,8 +47,9 @@ $ICON_COLOR: #424242;        //图标颜色
   height: 100%;
 }
 .btn {
-  margin: 0px;
+  margin: 0px auto;
   padding: $BUTTON_PADDING;
+  font-family: "Microsoft YaHei";
   outline: none;
   border: none;
   background: $ICON_COLOR;
@@ -84,6 +85,7 @@ ul {
   padding: 0px;
 }
 input {
+  font-family: Microsoft YaHei, Microsoft JhengHei, youyuan;
   outline-style: none;
   border-bottom: solid $INPUT_BORDER $MAIN_COLOR;
   border-top: 0px;
@@ -98,7 +100,7 @@ body {
   margin: 0px;
   padding: 0px;
   font-size: 15px;
-  font-family: Microsoft JhengHei, microsoft yahei,youyuan;
+  font-family: Microsoft YaHei, Microsoft JhengHei, youyuan;
 }
 pre {
   padding: 1em;

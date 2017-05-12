@@ -16,12 +16,12 @@ export default {
 .tnav {
   padding: 10px 2%;
   margin: 0px 0px;
-  width: 96%;
+  width: 95.5%;
   color: black;
   display: inline-block;
-  background: #F5F5F5;
+  background: white;
+  border: solid 1px #ececec;
   .rtext {
-    font-family: "方正姚体";
     float: right;
   }
 }

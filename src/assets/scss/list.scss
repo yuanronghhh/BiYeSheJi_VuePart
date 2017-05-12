@@ -3,15 +3,18 @@ $PIC_WIDTH: 80px;
 .list {
   background: $MAIN_COLOR;
   .filter-wrapper {
-    width: 96%;
-    display: flex;
-    padding: 10px 2%;
-    .filter {
-      text-align: center;
-      width: 20%;
-      height: 100%;
-      font-size: small;
-      color: grey;
+    .selection {
+      overflow: auto;
+      label {
+        color: blue;
+      }
+      .filter {
+        margin: 0 1%;
+      }
+      white-space: nowrap;
+      padding: 10px 2%;
+      text-align: left;
+      border-bottom: solid 1px $BODY_COLOR;
     }
   }
   .inner {
@@ -22,18 +25,30 @@ $PIC_WIDTH: 80px;
     .left {
       width: $PIC_WIDTH;
       height: $PIC_WIDTH;
-      margin: 5px 1%;
+      margin: 5px 2%;
       background: $ICON_COLOR;
     }
     .right {
       width: 70%;
-      .profile {
-         font-size: 14px;
-         color: #797978;
+      position: relative;
+      .title {
+        font-family: "Microsoft JhengHei";
+        font-weight: bold;
+        font-size: 16px;
+        color: black;
+      }
+      .description {
+        font-size: 13px;
+        margin: 5px 0px 25px 0px;
+        word-break: break-all;
+      }
+      span {
+        color: #ff5002;
+        font-size: 20px;
       }
       .price {
-        font-size: 20px;
-        color: $ICON_COLOR;
+        position: absolute;
+        bottom: 0;
       }
     }
   }

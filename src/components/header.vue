@@ -37,6 +37,7 @@
 require('../assets/scss/header.scss');
 require('../assets/scss/icon.scss');
 import $ from 'webpack-zepto';
+import config from '../config.js';
 import nvSide from '../components/side.vue';
 
 export default {
@@ -69,13 +70,12 @@ export default {
     cleanInput () {
       this.$data.search_keywords = "";
     },
-    postSearch () {
+    postSearch (value) {
       $.ajax({
         type: 'POST',
-        url: '/search',
-        dataType: 'json',
+        url: config.domain + '/search',
         data: {
-          "search_words": this.search_keywords
+          "search_words": this.search_keywords || value
         },
         success: function (data, status, xhr) {
           console.log(data);

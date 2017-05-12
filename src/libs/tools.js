@@ -1,3 +1,4 @@
+/* eslint-disable */
 function Tools(){
 }
 
@@ -32,5 +33,33 @@ Tools.prototype.addEvents = function(dv, evt_arr) {
     }
   }
 };
+
+Tools.prototype.setCookie = function(cookie_name, value, expire_day){
+  var exdate = new Date();
+  exdate.setDate(exdate.getDate()+expire_day);
+  document.cookie = cookie_name+ "=" + window.escape(value)+
+    ((expire_day === null) ? "" : ";expires="+exdate.toGMTString());
+}
+
+Tools.prototype.getCookie = function (name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim;
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+Tools.prototype.delAllCookie = function(){
+  document.cookie.split(";").forEach(function(c) {
+    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+  });
+}
 
 export default Tools;

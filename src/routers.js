@@ -30,21 +30,31 @@ const routers = [{
     });
   }
 }, {
-  path: '/hot-menu',
-  name: 'menu',
+  path: '/items',
+  name: 'items',
   component (resolve) {
     require.ensure(['./views/list.vue'], () => {
       resolve(require('./views/list.vue'));
     });
   }
 }, {
-  path: '/user/:login_name',
+  path: '/user',
   name: 'user',
   component (resolve) {
     require.ensure(['./views/user.vue'], () => {
       resolve(require('./views/user.vue'));
     });
-  }
+  },
+  meta: { requiresAuth: true }
+}, {
+  path: '/user/:info',
+  name: 'user_info',
+  component (resolve) {
+    require.ensure(['./views/user.vue'], () => {
+      resolve(require('./views/user.vue'));
+    });
+  },
+  meta: { requiresAuth: true }
 }, {
   path: '/item/:id/detail',
   name: 'detail',
@@ -52,7 +62,8 @@ const routers = [{
     require.ensure(['./views/detail.vue'], () => {
       resolve(require('./views/detail.vue'));
     });
-  }
+  },
+  meta: { requiresAuth: true }
 }, {
   path: '*',
   component: NotFound
