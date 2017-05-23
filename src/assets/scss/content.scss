@@ -1,8 +1,12 @@
+@import 'main.scss';
 $ACCESS_ICON: 30px;
 $WAPPER_PADDING: 0%;
 .content-wrapper {
   margin: 0;
   width: 100%;
+  display: inline-block;
+  border-bottom: solid 1px $BODY_COLOR;
+  border-top: solid 1px $BODY_COLOR;
   .access {
     .ac-wrapper {
       padding-top: 10px;

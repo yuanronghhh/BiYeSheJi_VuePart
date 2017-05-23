@@ -11,11 +11,27 @@ export default {
     var messageAlert = (msg) => {
       let $alert = $('<div class="message-alert"></div>');
       $('body').append($alert);
+      $alert.addClass("alert-show");
       $alert.html(msg);
-      $alert.addClass('alert-show');
       clearTimeout(timer);
+
+      $(".show-tip").remove();
       timer = setTimeout(() => {
-        $(".message-alert").remove();
+        $(".alert-show").remove();
+        $(".show-tip").remove();
+      }, 2000);
+    };
+
+    var showTip = (msg) => {
+      let $tip = $('<div class="show-tip"></div>');
+      $('body').append($tip);
+      $tip.html(msg);
+      clearTimeout(timer);
+
+      $(".alert-show").remove();
+      timer = setTimeout(() => {
+        $(".show-tip").remove();
+        $(".alert-show").remove();
       }, 2000);
     };
 
@@ -24,10 +40,11 @@ export default {
         var data = JSON.parse(xhr.responseText);
         messageAlert(data.message);
       } catch (e) {
-        console.log(e);
+        messageAlert("失败");
       }
     };
 
     Vue.prototype.$alert = messageAlert;
+    Vue.prototype.$showTip = showTip;
   }
 };

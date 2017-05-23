@@ -25,14 +25,15 @@
                  id="password" 
                  v-model="login_form.password" 
                  placeholder="密码" 
+                 @keyup.enter="login()"
                  type="password" />
         </div>
 
         <button class="btn submit login" @click="login()">登录</button>
 
         <div class="tip">
-          <a href="/forget" class="tip-left"><span>忘记密码?</span></a>
-          <a href="/signup"><span>注册</span></a>
+          <router-link to="/resetpass" class="tip-left"><span>忘记密码?</span></router-link>
+          <router-link to="/signup"><span>注册</span></router-link>
         </div>
       </div>
     </div>
@@ -43,7 +44,6 @@
 require('../assets/scss/login.scss');
 require('../assets/scss/main.scss');
 import nvHead from '../components/header.vue';
-import nvMenu from '../components/menu.vue';
 import $ from 'webpack-zepto';
 import config from '../config.js';
 import Form from '../libs/forms.js';
@@ -56,9 +56,10 @@ export default {
     }
   },
   methods: {
-    checkAccount: function() {
+    checkAccount: function(){
       var default_url = require("../assets/images/Login_03.jpg");
       this.portrait = default_url;
+
       $.ajax({
         type: "POST",
         url: config.domain + '/checkaccount',
@@ -71,6 +72,7 @@ export default {
         }
       });
     },
+
     login: function() {
       let form = new Form();
       form.validateData(['account', 'password'], this.login_form);
@@ -83,6 +85,7 @@ export default {
         $('#' + form.error.key).focus();
         return;
       }
+
       $.ajax({
         type: 'POST',
         url: config.domain + '/login',
@@ -90,20 +93,18 @@ export default {
         success: (data, status, xhr) => {
           let user = data.user;
           this.$alert(data.message);
-          window.window.sessionStorage.user = JSON.stringify(user);
+          window.sessionStorage.user = JSON.stringify(user);
           this.$store.dispatch('setUserInfo', user);
           this.$router.push({
             path: "/"
           });
-          this.$alert();
         },
         error: this.$errorHandler
       });
     }
   },
   components: {
-    nvHead,
-    nvMenu
+    nvHead
   },
   mounted () {
     this.checkAccount();

@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <div class="main-bg"></div>
+  <div class="home">
     <nv-head page-type="易单" left_icon="menu" right_icon="search"></nv-head>
     <div class="main-body">
 
@@ -28,18 +27,15 @@
           </router-link>
         </div>
 
-      </div>
 
-      <div class="content-wrapper">
-
-        <div class="access">
+        <div class="access block">
           <router-link to="/user/collection" class="ac-wrapper">
             <div class="ac-icon ac-four"><i class="material-icons">star</i></div>
             <div class="ac-text">我的收藏</div>
           </router-link>
-          <router-link to="/user/message" class="ac-wrapper">
+          <router-link to="/user/comment" class="ac-wrapper">
             <div class="ac-icon ac-three"><i class="material-icons">message</i></div>
-            <div class="ac-text">我的消息</div>
+            <div class="ac-text">我的评论</div>
           </router-link>
           <router-link to="/user/history" class="ac-wrapper">
             <div class="ac-icon ac-one"><i class="material-icons">history</i></div>
@@ -54,19 +50,20 @@
       </div>
 
 
-      <nv-bar left-text="猜你喜欢" right-text='"懂你"' ></nv-bar>
-        <nv-list :items="guessLike"></nv-list>
-      <nv-bar left-text="近期操作" right-text='"记录"' ></nv-bar>
-        <nv-card></nv-card>
 
+      <nv-bar left-text="猜你喜欢" right-text='"懂你"' ></nv-bar>
+      <nv-list :items="guessLike"></nv-list>
+      <nv-bar left-text="近期操作" right-text='"记录"' ></nv-bar>
+      <nv-card></nv-card>
     </div>
+
+    <div class="bg"></div>
   </div>
 </template>
 <script>
 import $ from "webpack-zepto";
 import config from '../config.js';
 import nvHead from '../components/header.vue';
-import nvMenu from '../components/menu.vue';
 import nvSlider from '../components/slider.vue';
 import nvContent from './content.vue';
 import nvCard from '../components/card.vue';
@@ -76,14 +73,11 @@ import nvBar from '../components/bar.vue';
 export default {
   components: {
     nvHead,
-    nvMenu,
     nvSlider,
     nvContent,
     nvList,
     nvBar,
     nvCard
-  },
-  props: {
   },
   data () {
     return {
@@ -107,9 +101,17 @@ export default {
           }];
         }
       });
+    },
+    hideBackground: function(){
+      $(".show-side").removeClass("show-side");
+      $(".show-edit").removeClass("show-side");
+      $(".bg").hide();
     }
   },
   mounted () {
+    $(".bg").off().on("click", () => {
+      this.hideBackground();
+    });
     this.getGuessLike();
   }
 };

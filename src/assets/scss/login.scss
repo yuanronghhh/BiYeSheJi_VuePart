@@ -4,7 +4,9 @@
   padding: 15px 10%;
   background-color: $MAIN_COLOR;
   .portrait {
-    padding: 0 35%;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
   }
   .tip-left {
     color: red;

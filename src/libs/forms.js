@@ -85,7 +85,8 @@ Form.prototype.formValidator = function(data, data_type){
           data_type, data);
       break;
     case "repass":
-    case "pass":
+    case "new_pass":
+    case "old_pass":
     case "password":
       this.signError(
           !pass_regx.test(data),

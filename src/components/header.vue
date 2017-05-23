@@ -5,27 +5,25 @@
                   header-left
                   header-icon" 
            v-text="left_icon"
-           @click="left_click($event)">menu
+           @click="leftClick($event)">menu
       </div>
 
       <div class="title" v-text="pageType"></div>
 
-      <a href="#search">
+      <a href="#">
         <div class="header-right 
                     material-icons
                     header-icon"
                     v-text="right_icon"
-                    @click="showSearch()">search</div>
+                    @click="rightClick($event)">search</div>
       </a>
 
     </div>
 
     <div class="search header block" v-show="search_input">
       <a href="#cancel"><i class="material-icons header-icon" @click="cancelSearch()">cancel</i></a>
-      <input class="input-control" type="text" @blur="cancelSearch()" v-model="search_keywords" @keyup.enter="postSearch()"/>
-      <a href="#postSearch">
-        <div class="header-right material-icons header-icon" @click="postSearch()">search</div>
-      </a>
+      <input class="input-control" type="text" v-model="search_words" @keyup.enter="postSearch()"/>
+      <div class="header-right material-icons header-icon" @click="postSearch()">search</div>
     </div>
 
     <nv-side :nick-name="nick_name"
@@ -36,8 +34,6 @@
 <script>
 require('../assets/scss/header.scss');
 require('../assets/scss/icon.scss');
-import $ from 'webpack-zepto';
-import config from '../config.js';
 import nvSide from '../components/side.vue';
 
 export default {
@@ -48,18 +44,30 @@ export default {
     right_icon: String
   },
   methods: {
-    left_click: function(ele){
-      if(ele.target.innerText === "keyboard_arrow_left") {
-        window.history.back();
-      } else {
-        this.showMenu();
+    leftClick: function(evt){
+      if(evt.target.innerText === "keyboard_arrow_left") {
+        return window.history.back();
+      }
+      if(evt.target.innerText === 'menu'){
+        return this.showMenu();
+      }
+
+      window.location.href = '/';
+    },
+    rightClick: function(evt) {
+      if(evt.target.innerText === "search") {
+        this.showSearchaBar();
+      }
+
+      if(evt.target.innerText === "save") {
+        this.$parent.updateInfo();
       }
     },
     showMenu () {
       this.$children[0].showSide();
       this.cleanInput();
     },
-    showSearch () {
+    showSearchaBar() {
       this.search_input = true;
       this.cleanInput();
     },
@@ -68,21 +76,12 @@ export default {
       this.cleanInput();
     },
     cleanInput () {
-      this.$data.search_keywords = "";
+      this.$data.search_words = "";
     },
     postSearch (value) {
-      $.ajax({
-        type: 'POST',
-        url: config.domain + '/search',
-        data: {
-          "search_words": this.search_keywords || value
-        },
-        success: function (data, status, xhr) {
-          console.log(data);
-        },
-        error: function (xhr, errorType, error) {
-          console.log(error);
-        }
+      var data = value || this.search_words;
+      this.$router.push({
+        path: '/search/' + data
       });
       this.cancelSearch();
       this.cleanInput();
@@ -91,7 +90,7 @@ export default {
   data () {
     return {
       search_input: false,
-      search_keywords: '',
+      search_words: '',
       nick_name: '',
       user_image: ''
     };

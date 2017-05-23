@@ -2,6 +2,20 @@
 function Tools(){
 }
 
+/**
+ * 将时间戳转换为一般格式
+ */
+Tools.prototype.formatDate = function(date){
+  var tm = new Date(date);
+  var yr = tm.getFullYear();
+  var month = (tm.getMonth() + 1);
+  var day = tm.getDate();
+  var hours = tm.getHours();
+  var minutes = tm.getMinutes();
+  // var seconds = tm.getSeconds();
+  return yr + "年" + month + "月" + day + "日" + " " + hours + ":" + minutes;
+}
+
 Tools.prototype.getById = function(id){
   return document.getElementById(id);
 };

@@ -3,9 +3,7 @@
     <div class="side">
 
       <div class="side-user" v-if="user_info.email">
-        <router-link :to="{ name: 'user', params: {name: user_info.name} }">
-          <img class="user-image" :src="getPictureUrl()" />
-        </router-link>
+        <img class="user-image" :src="getPictureUrl()" />
         <div class="name">昵称: <span v-text="user_info.name"></span> </div>
         <div class="email">邮箱: <span v-text="user_info.email"></span> </div>
       </div>
@@ -19,32 +17,48 @@
       </div>
 
       <div class="search">
-        <input type="text" @keyup.enter="postSearch()" v-model="search_keywords"　placeholder="搜索美食" />
+        <input type="text" @keyup.enter="postSearch()" v-model="search_words"　placeholder="搜索美食" />
         <div class="material-icons side-search" @click="postSearch()">search</div>
       </div>
 
       <div class="panel">
-        <a href="/user/collection"><i class="material-icons icon-collect">star</i><div class="line collection">收藏</div></a>
-        <a href="/user/message"><i class="material-icons icon-msg">message</i><div class="line message">消息</div></a>
-        <a href="/user"><i class="material-icons icon-user">settings</i><div class="line user-info">我的</div></a>
-        <a href="/site/about"><i class="material-icons icon-us">person</i><div class="line about">关于餐厅</div></a>
-        <a href="/community"><i class="material-icons icon-cmt">group</i><div class="line collection">合作</div></a>
-        <a href="/site/help"><i class="material-icons icon-help">help</i><div class="line help">帮助或反馈</div></a>
+
+        <div class="admin" v-if="isAdmin(user_info)">
+          <router-link  to="/admin" class="admin" v-if="isAdmin(user_info)">
+            <i class="material-icons icon-collect">code</i><div class="line collection">管理控制台</div>
+          </router-link>
+        </div>
+
+        <router-link to="/user/collection">
+          <i class="material-icons icon-collect">star</i><div class="line collection">收藏</div>
+        </router-link>
+        <router-link to="/user">
+          <i class="material-icons icon-user">settings</i><div class="line user-info">我的</div>
+        </router-link>
+        <router-link to="/site/router-linkbout">
+          <i class="material-icons icon-us">person</i><div class="line about">关于餐厅</div>
+        </router-link>
+        <router-link to="/community">
+          <i class="material-icons icon-cmt">group</i><div class="line collection">合作</div>
+        </router-link>
+        <router-link to="/site/help">
+          <i class="material-icons icon-help">help</i><div class="line help">帮助或反馈</div>
+        </router-link>
       </div>
 
     </div>
-    <div v-on:click="hideSide()"></div>
   </div>
 </template>
 <script>
 require('../assets/scss/side.scss');
 import { mapGetters } from 'vuex';
+import $ from 'webpack-zepto';
 
 export default {
   replace: true,
   data () {
     return {
-      search_keywords: '',
+      search_words: '',
       user_info: {}
     };
   },
@@ -54,27 +68,40 @@ export default {
     })
   },
   methods: {
+    isAdmin (user) {
+      if(user.status === 2) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     getPictureUrl () {
       var url = this.user_info.picture_url || require("../assets/images/slider_01.png");
       return url;
     },
-    hideSide () {
+    hideBackground () {
       this.$el.firstChild.classList.remove("show-side");
-      this.$el.lastChild.classList.remove("side-bg");
+      $(".bg").hide();
     },
     showSide () {
       this.$el.firstChild.classList.add("show-side");
-      this.$el.lastChild.classList.add("side-bg");
+      $(".bg").show();
     },
     postSearch () {
-      var kw = this.$data.search_keywords;
+      var kw = this.$data.search_words;
       this.$parent.postSearch(kw);
-      this.hideSide();
-      this.$data.search_keywords = "";
-    },
-    mounted: function() {
-      console.log('side mounted');
+      this.hideBackground();
+      this.$data.search_words = "";
     }
+  },
+  mounted () {
+    $(".panel").off().on("click", () => {
+      this.hideBackground();
+    });
+
+    $(".side-user").off().on("click", () => {
+      this.hideBackground();
+    });
   }
 };
 </script>

@@ -22,7 +22,7 @@
         <div class="input-group">
           <a><i class="large material-icons form-label">lock</i></a>
           <input class="input-control" id="repass" v-model="signup_form.repass"
-                                                   placeholder="重复密码" type="password" />
+                                                   placeholder="重置密码" type="password" />
         </div>
 
         <div class="input-group">
@@ -33,8 +33,8 @@
 
         <button class="btn submit signup" @click="signup">注册</button>
         <div class="tip">
-          <a href="/login" class="tip-left"><span>已有账号?</span></a>
-          <a href="/resetpass"><span>重置密码</span></a>
+          <router-link to="/login" class="tip-left"><span>已有账号?</span></router-link>
+          <router-link to="/resetpass"><span>重置密码</span></router-link>
         </div>
       </div>
     </div>
@@ -75,6 +75,11 @@ export default {
         data: form.cleaned_data,
         success: (data, status, xhr) => {
           this.$alert(data.message);
+          setTimeout(() => {
+            this.$router.push({
+              path: '/login'
+            });
+          }, 2000);
         },
         error: this.$errorHandler
       });

@@ -13,6 +13,12 @@ $.ajaxSettings.xhrFields = { withCredentials: true }; // 发送带cookie
 
 if (window.sessionStorage.user) {
   store.dispatch('setUserInfo', JSON.parse(window.sessionStorage.user));
+
+  if (window.sessionStorage.shop) {
+    store.dispatch('setShopInfo', JSON.parse(window.sessionStorage.shop));
+  }
+} else {
+  window.sessionStorage.clear();
 }
 
 const router = new VueRouter({

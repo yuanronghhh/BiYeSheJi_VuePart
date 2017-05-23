@@ -1,61 +1,86 @@
 <template>
   <div class="detail">
-    <div class="main-bg"></div>
     <nv-head page-type="详情" left_icon="keyboard_arrow_left" right_icon="n"></nv-head>
     <div class="main-body">
       <nv-slider></nv-slider>
 
       <div class="content block" :item-id="item.id">
-        <div class="label">名称: <label class="label detail-name">{{ item.name }}</label></div>
+        <div class="label">名称: <label class="label name">{{ item.name }}</label></div>
         <div class="label">价格: {{ item.price }}<label class="unit">元/份<label></div>
-        <div class="label">描述: <label class="detail-description">{{ item.description }}</label></div>
+        <div class="label">关键字: <label class="keywords">{{ item.keywords }}</label></div>
+        <div class="label">描述: <div class="description">{{ item.description }}</div></div>
       </div>
 
       <div class="btn-block block">
-        <button class="btn add-to-menu">添加到菜单</button>
-        <button class="btn add-to-collection">添加到收藏</button>
+        <button class="btn add-to-menu" @click="addToStore(item)">添加到菜单</button>
         <button class="btn share">向好友推荐</button>
       </div>
 
-      <nv-bar leftText="用户评价"></nv-bar>
-      <template v-for="comment in comments">
-        <ul class="comments block" :comment-id="comment.id">
-          <li class="comment-user">用户{{ comment.nick_name }}: </li>
-          <li class="comment-content">{{ comment.content }}</li>
-          <li class="create-at"><label class="label">创建时间:</label>{{ comment.create_at }}</li>
-        </ul>
-      </template>
-
-      <div class="next-page">下一页</div>
-
+      <nv-comment :comments="comments"></nv-comment>
     </div>
   </div>
 </template>
 <script>
 require("../assets/scss/detail.scss");
+import $ from "webpack-zepto";
+import config from '../config.js';
+import Tools from '../libs/tools.js';
+import store from '../vuex/user.js';
+
 import nvHead from '../components/header.vue';
 import nvSlider from '../components/slider.vue';
-import nvBar from '../components/bar.vue';
+import nvComment from '../components/comment.vue';
+
 export default {
   components: {
     nvHead,
     nvSlider,
-    nvBar
+    nvComment
   },
   methods: {
+    addToStore: function(item){
+      try {
+        var shop = store.state.shop_info;
+        shop.push(item);
+        window.sessionStorage.shop = JSON.stringify(shop);
+      } catch(e) {
+        console(e);
+      }
+      this.$alert("添加成功");
+    },
     getCommentsByItemId: function(id){
-      console.log("id getcommments is: ", id);
-      return [{
-        id: 1,
-        nick_name: '就独立声卡就大大撒大发发阿三就独立声卡就大大撒大发发阿三就独立声卡就大大撒大发发阿三就独立声卡就大大撒大发发阿三',
-        content: 'what did you say ?',
-        create_at: "2017/02/02"
-      }, {
-        id: 2,
-        nick_name: 'two',
-        content: '就独立声卡就大大撒大发发阿三就独立声卡就大大撒大发发阿三就独立声卡就大大撒大发发阿三就独立声卡就大大撒大发发阿三what did you say just now?',
-        create_at: "2017-02-03"
-      }];
+
+      $.ajax({
+        url: config.domain + "/comment",
+        type: 'POST',
+        data: {
+          "item_id": id
+        },
+        success: (res) => {
+          console.log(res);
+          var data = res.data;
+          var tools = new Tools();
+
+          for(var i = 0; i< data.length; i++) {
+            var tm = new Date(data[i].create_at);
+            data[i].create_at = tools.formatDate(tm.getTime());
+          }
+
+          this.comments = data;
+        },
+        error: this.$errorHandler
+      });
+    },
+    getItemById: function(id) {
+
+      $.ajax({
+        url: config.domain + "/item/" + id + "/detail",
+        type: 'GET',
+        success: (res) => {
+          this.item = res.data;
+        },
+        error: this.$errorHandler
+      });
     }
   },
   data () {
@@ -65,13 +90,9 @@ export default {
     }
   },
   mounted () {
-    this.item = {
-      "id": 10,
-      "name": "就独立声卡就大大撒大发发阿三",
-      "price": 13
-    };
-    this.id = this.$route.params.id;
-    this.comments = this.getCommentsByItemId(this.id);
+    var id = this.$route.params.id;
+    this.getItemById(id);
+    this.getCommentsByItemId(id);
   }
 };
 </script>

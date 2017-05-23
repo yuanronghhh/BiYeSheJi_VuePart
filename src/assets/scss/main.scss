@@ -2,21 +2,37 @@ $INPUT_LENGTH: 100%;
 $MAIN_COLOR: white;
 $INPUT_BORDER: 1px;
 $PLACEHOLDER_COLOR: #d3d3d3; //placeholder颜色, 灰色
-$BODY_COLOR: #dee1e2;        //主颜色
-$BUTTON_PADDING: 15px;       //按钮padding
+$BODY_COLOR: #eaeaea;        //主颜色
+$BUTTON_PADDING: 10px;       //按钮padding
 $ICON_SIZE: 25px;            //图标大小
 $ICON_COLOR: #424242;        //图标颜色
 @import 'effect.scss';
 .submit {
   font-weight: bold;
 }
+.show-message {
+  text-align: center;
+  margin: 10px 0%;
+}
+.show-tip {
+  position: fixed;
+  z-index: 21;
+  width: 90%;
+  text-align: center;
+  background: white;
+  border: solid 1px green;
+  margin: 0 5%;
+  bottom: 100px;
+  padding: 10px 0%;
+}
 .alert-show {
   z-index: 10;
   bottom: 10%;
-  width: 80%;
+  width: 60%;
   padding: 5px 0px;
-  color: $ICON_COLOR;
-  margin: 0% 10%;
+  background: #ff8080;
+  color: white;
+  margin: 0% 20%;
   text-align: center;
   position: fixed; 
 }
@@ -27,6 +43,7 @@ $ICON_COLOR: #424242;        //图标颜色
   float: left;
 }
 .input-control {
+  break-word: break-all;
   margin-left: 10px;
   border-bottom: solid 1px $ICON_COLOR;
 }
@@ -34,17 +51,13 @@ $ICON_COLOR: #424242;        //图标颜色
   margin-top: 25px;
 }
 .main-body {
+  word-break: break-all;
   width: 100%;
   height: 100%;
-  padding: 41px 0px;
+  padding: 40px 0px 40px 0px;
   position: absolute;
   background: white;
   background-attachment: fixed;
-}
-.main-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
 }
 .btn {
   margin: 0px auto;
@@ -52,6 +65,8 @@ $ICON_COLOR: #424242;        //图标颜色
   font-family: "Microsoft YaHei";
   outline: none;
   border: none;
+  border-radius: 2px;
+  cursor: pointer;
   background: $ICON_COLOR;
   color: white;
 }
@@ -84,13 +99,13 @@ ul {
   margin: 0px;
   padding: 0px;
 }
-input {
+input, textarea {
   font-family: Microsoft YaHei, Microsoft JhengHei, youyuan;
   outline-style: none;
   border-bottom: solid $INPUT_BORDER $MAIN_COLOR;
   border-top: 0px;
   border-left: 0px;
-  font-size: 1em;
+  font-size: 15px;
   border-right: 0px;
   .input-control {
     width: $INPUT_LENGTH;
@@ -117,4 +132,37 @@ code>p {
 img {
   width: 100%;
   height: 100%;
+}
+.all-page {
+  text-align: center;
+  padding: 5px 0px;
+  margin: 10px 2%;
+  width: 96%;
+  background: #f1f1f1;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  word-break: break-all;
+  td {
+    padding: 1px 0.5%;
+    text-align: center;
+  }
+  td, tr, th {
+    overflow: hidden;
+    border: solid 1px black;
+  }
+}
+p {
+  margin: 0px;
+  padding: 0px;
+}
+.bg {
+  position: fixed;
+  z-index: 19;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display:none;
 }

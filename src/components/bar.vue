@@ -1,7 +1,7 @@
 <template>
   <div class="tnav">
-    <span class="ltext" v-text="leftText"></span>
-    <span class="rtext" v-text="rightText"></span>
+    <div class="bar ltext" v-text="leftText"></div>
+    <div class="bar rtext" v-text="rightText"></div>
   </div>
 </template>
 <script>
@@ -13,16 +13,18 @@ export default {
 }
 </script>
 <style lang="scss">
+$BAR_PADDING: 2%;
 .tnav {
-  padding: 10px 2%;
-  margin: 0px 0px;
-  width: 95.5%;
+  padding: 5px $BAR_PADDING;
   color: black;
-  display: inline-block;
-  background: white;
-  border: solid 1px #ececec;
+  clear: both;
   .rtext {
-    float: right;
+    position: absolute;
+    right: $BAR_PADDING;
+  }
+  .bar {
+    display: inline-block;
+    padding: 5px 0%;
   }
 }
 </style>
