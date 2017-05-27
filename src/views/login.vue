@@ -52,7 +52,7 @@ export default {
   data () {
     return {
       login_form: {},
-      portrait: ''
+      portrait: require("../assets/images/Login_03.jpg")
     }
   },
   methods: {
@@ -105,9 +105,6 @@ export default {
   },
   components: {
     nvHead
-  },
-  mounted () {
-    this.checkAccount();
   }
 };
 </script>

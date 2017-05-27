@@ -37,7 +37,6 @@ export default {
 <style lang="scss">
 .backtop {
   position: fixed;
-  z-index: 0;
   right: 20px;
   bottom: 50px;
     .up {

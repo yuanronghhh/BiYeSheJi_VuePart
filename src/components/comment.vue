@@ -20,7 +20,7 @@
       <div class="btn"><div class="text" @click="addComment()">发送</div><i class="material-icons">send</i></div>
     </div>
 
-    <div class="all-page" @click="showAllComments()">查看所有</div>
+    <!-- <div class="all-page" @click="showAllComments()">查看所有</div> -->
   </div>
 </template>
 <script>
@@ -141,7 +141,7 @@ export default {
 
   .add {
     position: fixed;
-    bottom: 14%;
+    bottom: 8%;
     right: 10%;
     color: #48632c;
     background: #f1f0f0;

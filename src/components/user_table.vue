@@ -1,7 +1,7 @@
 <template>
 <div class="table">
 
-  <div class="user-table" v-if="show_user">
+  <div class="user-table">
     <table>
       <thead>
         <th v-for="col in cols">{{ col }}</th>
@@ -19,8 +19,8 @@
           <td><input v-model="user.money       "></input></td>
           <td><input v-model="user.status      "></input></td>
           <td><input v-model="user.phone_number"></input></td>
-          <td><div   v-text="user.create_at    "></div  ></td>
-          <td><div   v-text="user.update_at    "></div  ></td>
+          <td><div   v-text="formatByString(user.create_at)"></div></td>
+          <td><div   v-text="formatByString(user.update_at)"></div  ></td>
           <td><button class="btn" @click="updateUser(user)">保存</button></td>
           <td><button class="btn" @click="deleteUser(user)">删除</button></td>
           <td><button class="btn" @click="resetPass(user)">重置密码</button></td>
@@ -48,6 +48,7 @@
 require('../assets/scss/main.scss');
 import $ from 'webpack-zepto';
 import config from '../config.js';
+import Tools from '../libs/tools.js'
 
 export default {
   data () {
@@ -56,11 +57,16 @@ export default {
       users: [],
       cols: [],
       items: [],
-      collections: [],
-      show_user: false
+      collections: []
     };
   },
   methods: {
+    formatByString: function(time_string) {
+      var tools = new Tools();
+      var tm = new Date(time_string);
+      return tools.formatDate(tm.getTime());
+    },
+
     resetPass: function(user) {
       $.ajax({
         url: config.domain + "/resetpass",
@@ -135,16 +141,7 @@ export default {
     }
   },
   mounted () {
-    var type = this.$route.params.info;
-
-    if(type === 'user') {
-      this.show_user = true;
-      this.getUsers();
-    }
-
-    if(type === 'item') {
-    }
-
+    this.getUsers();
   }
 }
 </script>

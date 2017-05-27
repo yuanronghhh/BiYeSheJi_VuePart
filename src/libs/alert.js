@@ -40,7 +40,7 @@ export default {
         var data = JSON.parse(xhr.responseText);
         messageAlert(data.message);
       } catch (e) {
-        messageAlert("失败");
+        messageAlert("抱歉, 出错了");
       }
     };
 

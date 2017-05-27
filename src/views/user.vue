@@ -23,7 +23,7 @@
           </div>
           <div class="basic-info">
             <label class="money">余额: </label>{{ user_info.money }} 元
-            <router-link to="/user/updateInfo">充值</a>
+            <!-- <router-link to="/user/updateInfo">充值</router-link> -->
           </div>
 
           <div class="basic-info">
@@ -34,12 +34,9 @@
         </div>
 
         <div class="panel">
-          <router-link to="/user/collection">
-            <i class="material-icons icon-collect">folder_special</i><div class="line collection">我的收藏</div>
-          </router-link>
           <router-link to="/user/order"><i class="material-icons icon-msg">shop</i><div class="line message">我的订单</div></router-link>
           <router-link to="/user/comment"><i class="material-icons icon-collect">comment</i><div class="line collection">我的评论</div></router-link>
-          <router-link to="/user/history"><i class="material-icons icon-msg">history</i><div class="line">近期操作</div></router-link>
+          <!-- <router-link to="/user/history"><i class="material-icons icon-msg">history</i><div class="line">近期操作</div></router-link> -->
         </div>
 
         <button to="/signout" @click="signOut()" class="btn signout">注销登录</button>
@@ -135,6 +132,7 @@ export default {
 };
 </script>
 <style lang="scss">
+@import '../assets/scss/main.scss';
 .background {
   background: white;
   .title {

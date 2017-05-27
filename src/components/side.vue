@@ -29,12 +29,16 @@
           </router-link>
         </div>
 
-        <router-link to="/user/collection">
-          <i class="material-icons icon-collect">star</i><div class="line collection">收藏</div>
+        <router-link  to="/user/comment">
+          <i class="material-icons icon-collect">comment</i><div class="line collection">我的评论</div>
+        </router-link>
+        <router-link  to="/user/order">
+          <i class="material-icons icon-collect">list</i><div class="line collection">我的订单</div>
         </router-link>
         <router-link to="/user">
-          <i class="material-icons icon-user">settings</i><div class="line user-info">我的</div>
+          <i class="material-icons icon-user">settings</i><div class="line user-info">用户中心</div>
         </router-link>
+
         <router-link to="/site/router-linkbout">
           <i class="material-icons icon-us">person</i><div class="line about">关于餐厅</div>
         </router-link>

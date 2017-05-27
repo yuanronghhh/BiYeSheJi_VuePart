@@ -27,7 +27,7 @@
           <div class="label">总价 {{ total }}</div>
         </span>
 
-        <button class="btn pay" @click="submitOrder()">结账</button>
+        <button class="btn pay" @click="addRemark()">结账</button>
 
         <div class="shop" v-show="show_shop">
           <ul v-for="item in shop">
@@ -36,6 +36,9 @@
             <li class="delete" @click="deleteFromStore(item)" ><i class="material-icons">remove</i></li>
           </ul>
         </div>
+      </div>
+
+      <nv-box holder="添加备注(可为空)" title="添加备注" v-show="show_box"></nv-box>
 
       <nv-backtop></nv-backtop>
     </div>
@@ -46,6 +49,7 @@ require('../assets/scss/main.scss');
 import nvHead from '../components/header.vue';
 import nvList from '../components/list.vue';
 import nvBacktop from "../components/backtop.vue";
+import nvBox from "../components/box.vue";
 
 import config from '../config.js';
 import $ from 'webpack-zepto';
@@ -53,6 +57,7 @@ import store from '../vuex/user';
 
 export default {
   components: {
+    nvBox,
     nvBacktop,
     nvHead,
     nvList
@@ -88,6 +93,7 @@ export default {
         ]
       },
       show_shop: false,
+      show_box: false,
       form: {
         type: '',
         order: ''
@@ -106,6 +112,9 @@ export default {
     },
     shop: function() {
       return store.state.shop_info;
+    },
+    remark: function(){
+      return this.box_value;
     }
   },
   methods: {
@@ -132,12 +141,18 @@ export default {
       window.sessionStorage.removeItem("shop");
       store.state.shop_info = [];
     },
-    submitOrder: function () {
+    addRemark: function() {
+      this.show_box = true;
+    },
 
+    submit: function () {
+
+      console.log(this);
       $.ajax({
         type: 'POST',
         url: config.domain + "/menu/create",
         data: {
+          "remark": this.remark,
           "data": JSON.stringify(this.shop)
         },
         success: (data) => {
@@ -178,12 +193,6 @@ export default {
       this.showTip();
       this.shop.push(item);
       window.sessionStorage.shop = JSON.stringify(this.shop);
-    },
-    getFilterLink: function(filter) {
-      return "#/classify/" + filter;
-    },
-    getSortLink: function(order) {
-      return "#/order/" + order;
     },
     getItems: function(name, type){
 

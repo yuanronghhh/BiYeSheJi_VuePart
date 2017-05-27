@@ -8,12 +8,12 @@
         <div class="label">名称: <label class="label name">{{ item.name }}</label></div>
         <div class="label">价格: {{ item.price }}<label class="unit">元/份<label></div>
         <div class="label">关键字: <label class="keywords">{{ item.keywords }}</label></div>
-        <div class="label">描述: <div class="description">{{ item.description }}</div></div>
+        <div class="label">介绍: <div class="description">{{ item.description }}</div></div>
       </div>
 
       <div class="btn-block block">
         <button class="btn add-to-menu" @click="addToStore(item)">添加到菜单</button>
-        <button class="btn share">向好友推荐</button>
+        <!-- <button class="btn share">向好友推荐</button> -->
       </div>
 
       <nv-comment :comments="comments"></nv-comment>
@@ -38,6 +38,18 @@ export default {
     nvComment
   },
   methods: {
+    collect: function(item){
+
+      $.ajax({
+        url: config.domain + "/collect",
+        type: 'POST',
+        data: item,
+        success: (res) => {
+          console.log(res);
+        },
+        error: this.$errorHandler
+      });
+    },
     addToStore: function(item){
       try {
         var shop = store.state.shop_info;

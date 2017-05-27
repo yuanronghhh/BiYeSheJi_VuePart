@@ -7,13 +7,10 @@
           <router-link to="/admin/user">用户管理</router-link>
         </div>
         <div class="nav">
-          <router-link to="/admin/collection">收藏管理</router-link>
-        </div>
-        <div class="nav">
           <router-link to="/admin/comment">评论管理</router-link>
         </div>
         <div class="nav">
-          <router-link to="/admin/item">订单管理</router-link>
+          <router-link to="/admin/order">订单管理</router-link>
         </div>
       </div>
 
@@ -27,6 +24,11 @@ import nvHead from '../components/header.vue';
 export default {
   components: {
     nvHead
+  },
+  mounted () {
+    this.$router.push({
+      "path": '/admin/user'
+    });
   }
 }
 </script>

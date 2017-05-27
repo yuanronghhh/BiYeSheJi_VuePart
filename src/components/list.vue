@@ -10,7 +10,6 @@
           <div class="right">
             <div class="name" v-text="item.name"></div>
             <div class="profile" v-text="item.profile"></div>
-            <div class="profile" v-text="item.comment_count"></div>
             <div class="price">
               <label class="type" v-text="item.type"></label>
               <label>价格:</label><span v-text="item.price">

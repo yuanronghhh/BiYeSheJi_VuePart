@@ -15,32 +15,24 @@
           </router-link>
           <router-link to="/items" class="ac-wrapper">
             <div class="ac-icon ac-two"><i class="material-icons" >format_list_bulleted</i></div>
-            <div class="ac-text">所有菜单</div>
+            <div class="ac-text">餐厅菜单</div>
           </router-link>
           <router-link to="/most-stars" class="ac-wrapper">
             <div class="ac-icon ac-three"><i class="material-icons">local_florist</i></div>
             <div class="ac-text">好评如潮</div>
           </router-link>
-          <router-link to="/recommend" class="ac-wrapper">
-            <div class="ac-icon ac-four"><i class="material-icons">local_dining</i></div>
-            <div class="ac-text">餐厅推荐</div>
-          </router-link>
         </div>
 
 
         <div class="access block">
-          <router-link to="/user/collection" class="ac-wrapper">
-            <div class="ac-icon ac-four"><i class="material-icons">star</i></div>
-            <div class="ac-text">我的收藏</div>
-          </router-link>
           <router-link to="/user/comment" class="ac-wrapper">
             <div class="ac-icon ac-three"><i class="material-icons">message</i></div>
             <div class="ac-text">我的评论</div>
           </router-link>
-          <router-link to="/user/history" class="ac-wrapper">
+          <!-- <router-link to="/user/history" class="ac-wrapper">
             <div class="ac-icon ac-one"><i class="material-icons">history</i></div>
             <div class="ac-text">历史列表</div>
-          </router-link>
+          </router-link> -->
           <router-link to="/user" class="ac-wrapper">
             <div class="ac-icon ac-five"><i class="material-icons">person</i></div>
             <div class="ac-text">个人中心</div>
@@ -53,8 +45,8 @@
 
       <nv-bar left-text="猜你喜欢" right-text='"懂你"' ></nv-bar>
       <nv-list :items="guessLike"></nv-list>
-      <nv-bar left-text="近期操作" right-text='"记录"' ></nv-bar>
-      <nv-card></nv-card>
+      <!-- <nv-bar left-text="近期操作" right-text='"记录"' ></nv-bar> -->
+      <!-- <nv-card></nv-card> -->
     </div>
 
     <div class="bg"></div>

@@ -52,7 +52,9 @@ export default {
         return this.showMenu();
       }
 
-      window.location.href = '/';
+      this.$router.push({
+        "path": '/'
+      });
     },
     rightClick: function(evt) {
       if(evt.target.innerText === "search") {

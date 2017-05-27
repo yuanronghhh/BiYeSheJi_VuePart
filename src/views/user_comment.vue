@@ -8,7 +8,7 @@
 
       <div class="user-comment card" v-for="comment in comments">
         <router-link :to="{ name:'detail', params: { id: comment.item_id } }">
-          <i class="material-icons">link</i>
+          <i class="material-icons">loyalty</i>
           <p class="content">
             {{ comment.content }}
           </p>
@@ -23,7 +23,6 @@
 <script>
 import nvBacktop from "../components/backtop.vue";
 import nvHead from '../components/header.vue';
-import nvOrder from '../components/order.vue';
 import nvLoading from '../components/loading.vue';
 import Tools from '../libs/tools.js'
 
@@ -34,7 +33,6 @@ import $ from 'webpack-zepto';
 export default {
   components: {
     nvHead,
-    nvOrder,
     nvBacktop,
     nvLoading
   },

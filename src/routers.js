@@ -78,8 +78,16 @@ const routers = [{
   },
   meta: { requiresAuth: true }
 }, {
+  path: '/user/order',
+  name: 'order',
+  component (resolve) {
+    require.ensure(['./views/order.vue'], () => {
+      resolve(require('./views/order.vue'));
+    });
+  }
+}, {
   path: '/user/comment',
-  name: 'user_info',
+  name: 'comment',
   component (resolve) {
     require.ensure(['./views/user_comment.vue'], () => {
       resolve(require('./views/user_comment.vue'));
@@ -95,10 +103,24 @@ const routers = [{
     });
   },
   children: [{
-    path: '/admin/:info',
+    path: 'user',
     component (resolve) {
-      require.ensure(["./components/table.vue"], () => {
-        resolve(require('./components/table.vue'));
+      require.ensure(["./components/user_table.vue"], () => {
+        resolve(require('./components/user_table.vue'));
+      });
+    }
+  }, {
+    path: 'comment',
+    component (resolve) {
+      require.ensure(["./components/comment_table.vue"], () => {
+        resolve(require('./components/comment_table.vue'));
+      });
+    }
+  }, {
+    path: 'order',
+    component (resolve) {
+      require.ensure(["./components/order_table.vue"], () => {
+        resolve(require('./components/order_table.vue'));
       });
     }
   }]
