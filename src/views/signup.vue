@@ -22,7 +22,7 @@
         <div class="input-group">
           <a><i class="large material-icons form-label">lock</i></a>
           <input class="input-control" id="repass" v-model="signup_form.repass"
-                                                   placeholder="重置密码" type="password" />
+                                                   placeholder="重复密码" type="password" />
         </div>
 
         <div class="input-group">
